@@ -126,6 +126,10 @@ const controlAddRecipe = async newRecipe => {
   }
 };
 
+const newWelcomeMessage = () => {
+  console.log('HELLO!!! Welcome to an all new Recipe Page!');
+};
+
 const init = () => {
   recipeView.addHandlerRender(controlRecipes);
   recipeView.addHandlerUpdateServings(controlServings);
@@ -134,5 +138,6 @@ const init = () => {
   paginationView.addHandlerClick(controlPagination);
   bookmarksView.addHandlerRender(controlBookmarks);
   addRecipeView.addHandlerUpload(controlAddRecipe);
+  newWelcomeMessage();
 };
 init();
