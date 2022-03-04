@@ -15,7 +15,6 @@ import 'regenerator-runtime/runtime';
 const controlRecipes = async () => {
   try {
     const id = window.location.hash.slice(1);
-    // console.log(id);
 
     if (!id) return;
 
@@ -26,7 +25,6 @@ const controlRecipes = async () => {
 
     // 1) Loading Recipe
     await model.loadRecipe(id);
-    // console.log(model.state.recipe);
 
     // 2) Rendering fetched recipe
     recipeView.render(model.state.recipe);
@@ -48,10 +46,8 @@ const controlSearchResults = async () => {
 
     // 2) Load Search results
     await model.loadSearchResults(query);
-    // console.log(model.state.search.results);
 
     // 3) Render results
-    // resultsView.render(model.state.search.results);
     resultsView.render(model.getSearchResultsPage());
 
     // 4) Render Initial pagination view
@@ -83,7 +79,6 @@ const controlAddBookmark = () => {
   if (!model.state.recipe.bookmarked) model.addBookmark(model.state.recipe);
   else if (model.state.recipe.bookmarked)
     model.deleteBookmark(model.state.recipe.id);
-  // console.log(model.state.recipe);
   // 2) Update recipe view
   recipeView.update(model.state.recipe);
 
@@ -102,7 +97,6 @@ const controlAddRecipe = async newRecipe => {
 
     // Upload the new recipe Data
     await model.uploadRecipe(newRecipe);
-    // console.log(model.state.recipe);
 
     // Render recipe
     recipeView.render(model.state.recipe);
